@@ -7,3 +7,6 @@ vim 의 컬러스키마 경로 확인 후 start.sh 수정
 
 실행  
   $ ./start.sh
+  
+vim 에서 명령어 실행  
+  :PluginInstall
