@@ -1,4 +1,4 @@
-# linux_init
+# 설치법
 
 리눅스의 환경설정을 쉽게 하기 위한 스크립트를 보관한다.
 
@@ -10,6 +10,9 @@ vim 의 컬러스키마 경로 확인 후 start.sh 수정
   
 vim 에서 명령어 실행  
   :PluginInstall
+
+재부팅  
+  sudo reboot -h now
 
 # 사용법
   
