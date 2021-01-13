@@ -3,19 +3,19 @@
 리눅스의 환경설정을 쉽게 하기 위한 스크립트를 보관한다.
 
 vim 의 컬러스키마 경로 확인 후 start.sh 수정  
-  $ cd /usr/share/vim/vim73/colors/      // 73은 각 버전
+* $ cd /usr/share/vim/vim73/colors/      // 73은 각 버전
 
 실행  
-  $ ./start.sh
+* $ ./start.sh
   
 vim 에서 명령어 실행  
-  :PluginInstall
+* :PluginInstall
 
 재부팅  
-  sudo reboot -h now
+* sudo reboot -h now
 
 # 사용법
-  
+
 NERD ======================  
  * F2 NERD Toggle
  * F3 NERD Find
