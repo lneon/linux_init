@@ -33,9 +33,7 @@ sudo apt-get install global
 sudo apt install cpp cmake python3-dev
 cd ~/.vim/bundle/youcompleteme/
 ./install.py --clang-completer
-wget
-https://raw.githubusercontent.com/Valloric/ycmd/66030cd94299114ae316796f3cad181cac8a007c/.ycm_extra_conf.py
--P ~/.vim/
+cp .ycm_extra_conf.py ~/.vim/
 
 echo ">> start.sh FINISH!"
 
