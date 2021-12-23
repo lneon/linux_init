@@ -9,7 +9,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 echo "download color theme"
 # vim 버전 업데이트할것!
-cd /usr/share/vim/vim73/colors/
+cd /usr/share/vim/vim81/colors/
 sudo wget -O molokai.vim https://raw.github.com/tomasr/molokai/master/colors/molokai.vim
 
 echo "add .bashrc config"
@@ -27,5 +27,10 @@ sudo apt-get install ctags
 echo "install GNU Global"
 sudo apt-get install global
 
-echo "start.sh FINISH!"
 echo "type vim command :PluginInstall"
+
+echo "sudo apt install cpp cmake python3-dev"
+echo "cd ~/.vim/bundle/YouCompleteMe/"
+echo "./install.py --clang-completer"
+
+echo "start.sh FINISH!"

@@ -8,7 +8,7 @@ set smartindent     " more smart indent
 set textwidth=79     
 set nowrapscan     "don't search to top again
 set nobackup         " don't create backup file
-set ruler             " show ruler
+set ruler             " 상태표시줄에 커서의 위치 표시
 set tabstop=4         " user spaces instead of tab
 set expandtab
 set shiftwidth=4     " auto indent - 4 space
@@ -16,13 +16,12 @@ set nu                 "set line number
 set nowrap         "don't auto linebreak
 set mouse=a                  "마우스 사용 가능
 
+set ignorecase  "검색 시 대소문자 구별하지 않음
+set hlsearch "검색 시 하이라이트 (색상강조)
+
 syntax on "구문강조
 filetype on "파일종류에 따른 구문강조
 
-" Syntax Highlighting
-if has("syntax")
-   syntax on
-endif
 
 " vim window change
 nmap <C-H> <C-W>h
@@ -55,6 +54,8 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'gtags.vim'
 
+Plugin 'valloric/youcompleteme'
+
 call vundle#end()
 
 "airline
@@ -70,8 +71,8 @@ let NERDTreeWinPos = "left" "NERD Tree  = left
 let g:NERDTreeDirArrowExpandable = '>'
 let g:NERDTreeDirArrowCollapsible = '-'
 " 파일없이 vim만 켤 경우 자동으로 NERD Tree 실행.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " :Files (file search)
 
