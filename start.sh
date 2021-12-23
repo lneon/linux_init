@@ -1,8 +1,9 @@
 #!/bin/bash
 echo ">> start.sh START!"
 
-echo ">> copy vimrc"
+echo ">> copy vimrc, ycm_extra_conf.py"
 cp ./.vimrc ~/.vimrc
+cp .ycm_extra_conf.py ~/.vim/
 
 echo ">> git clone Vundle.vim"
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -33,7 +34,6 @@ sudo apt-get install global
 sudo apt install cpp cmake python3-dev
 cd ~/.vim/bundle/youcompleteme/
 ./install.py --clang-completer
-cp .ycm_extra_conf.py ~/.vim/
 
 echo ">> start.sh FINISH!"
 
