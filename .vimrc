@@ -1,5 +1,7 @@
-"한글깨짐 방지
-set encoding=utf-8
+"////////////////////////////////////////////////
+"기본 세팅
+"////////////////////////////////////////////////
+set encoding=utf-8 "한글깨짐 방지
 set fileencodings=utf-8,cp949
 
 set autoindent     " auto indent 
@@ -22,22 +24,19 @@ set hlsearch "검색 시 하이라이트 (색상강조)
 syntax on "구문강조
 filetype on "파일종류에 따른 구문강조
 
+colo molokai
 
-" vim window change
-nmap <C-H> <C-W>h
-nmap <C-J> <C-W>j
-nmap <C-K> <C-W>k
-nmap <C-L> <C-W>l
-
-
+"////////////////////////////////////////////////
 " 마우스 사용 On/Off
+"////////////////////////////////////////////////
 map <F7> <ESC>:set mouse=a<CR>
 map <F8> <ESC>:set mouse-=a<CR>
 
-colo molokai
 
-
+"////////////////////////////////////////////////
 "Vundle 세팅
+"///////////////////////////////////////////////
+
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
@@ -55,14 +54,21 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'gtags.vim'
 
 Plugin 'valloric/youcompleteme'
+Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+
+Plugin 'terryma/vim-smooth-scroll' "부드러운 스크롤
 
 call vundle#end()
 
+"//////////////////////////////////////////////
 "airline
+"//////////////////////////////////////////////
 set laststatus=2
 
-
+"//////////////////////////////////////////////
 "NERD Tree Option
+"//////////////////////////////////////////////
+
 silent! nmap <F2> :NERDTreeToggle<CR>
 silent! map <F3> :NERDTreeFind<CR>
 let g:NERDTreeMapActivateNode="<F3>"    " Let current page focus on NERDTree
@@ -74,22 +80,35 @@ let g:NERDTreeDirArrowCollapsible = '-'
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-" :Files (file search)
 
+
+"//////////////////////////////////////////////
+" fzf
+"//////////////////////////////////////////////
+" :Files (file search)
 map <F5> :Files<CR>
 let g:fzf_layout = { 'left': '~50%' } " down, up, left, right
 
 
+"//////////////////////////////////////////////
 " vim cpp enhanced highlight
+"//////////////////////////////////////////////
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:cpp_concepts_highlight = 1
 let g:cpp_experimental_simple_template_highlight = 1
 
+
+"//////////////////////////////////////////////
+"ctags
+"//////////////////////////////////////////////
 " set tags+=/home/lneon/trunk/src/ctags
 
+
+"//////////////////////////////////////////////
 "gtags
+"//////////////////////////////////////////////
 
 "현재 cursor가 위치한 string을 tag에서 검색(definition등)
 nmap <Leader>gd :Gtags <C-R>=expand("<cword>")<CR><CR>
@@ -116,4 +135,47 @@ nmap <Leader>ige :Gtags -ige <C-R>=expand("<cword>")<CR><CR>a
 "코드가 있는 디렉토리만 선택 (옵션)
 "$ find folder1 folder2 folder3 -type f -print >gtags.files
 "$ gtags // 데이터생성
+
+
+"///////////////////////////////////////////////////////////
+" vim-smooth-scrol
+"///////////////////////////////////////////////////////////
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 5)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 5)<CR>
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 10, 3)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 10, 3)<CR>
+
+
+"///////////////////////////////////////////////////////////
+"YouCompleteMe
+"///////////////////////////////////////////////////////////
+let g:ycm_key_list_select_completion = ['<C-n>']
+let g:ycm_key_list_previous_completion=['<C-p>']
+
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_min_num_of_chars_for_completion = 1
+"let g:ycm_server_python_interpreter = '/usr/bin/python3'
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_complete_in_strings = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_filetype_blacklist = {}
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+
+" 변수나 함수에서 \g, \gg, .. 로 사용 가능
+" 자동완성은 CTRL + SPACE
+" 점프 후 뒤돌아갈떈 CTRL + o
+" 점프 후 뒤돌아간 후 다시 앞으로 갈땐 CTRL + i
+nnoremap <leader>g :YcmCompleter GoTo<CR>
+nnoremap <leader>gg :YcmCompleter GoToImprecise<CR>
+nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>t :YcmCompleter GetType<CR>
+nnoremap <leader>p :YcmCompleter GetParent<CR>
+
+
+"///////////////////////////////////////////////////////////
+
+
+
 

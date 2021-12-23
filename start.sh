@@ -1,36 +1,42 @@
 #!/bin/bash
-echo "start.sh START!"
+echo ">> start.sh START!"
 
-echo "copy vimrc"
+echo ">> copy vimrc"
 cp ./.vimrc ~/.vimrc
 
-echo "git clone Vundle.vim"
+echo ">> git clone Vundle.vim"
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-echo "download color theme"
+echo ">> download color theme"
+ls /usr/share/vim/
+echo "   Type Vim Version: "
+read VERSION
+
 # vim 버전 업데이트할것!
-cd /usr/share/vim/vim81/colors/
+cd /usr/share/vim/vim$VERSION/colors/
 sudo wget -O molokai.vim https://raw.github.com/tomasr/molokai/master/colors/molokai.vim
 
-echo "add .bashrc config"
+echo ">> add .bashrc config"
 echo "export TERM=xterm-256color" >> ~/.bashrc
 
-echo "install c++ code highlight"
+echo ">> install c++ code highlight"
 git clone https://github.com/octol/vim-cpp-enhanced-highlight.git /tmp/vim-cpp-enhanced-highlight
 mkdir -p ~/.vim/after/syntax/
 mv /tmp/vim-cpp-enhanced-highlight/after/syntax/cpp.vim ~/.vim/after/syntax/cpp.vim
 rm -rf /tmp/vim-cpp-enhanced-highlight
 
-echo "install tags"
+echo ">> install tags"
 sudo apt-get install ctags
 
-echo "install GNU Global"
+echo ">> install GNU Global"
 sudo apt-get install global
+sudo apt install cpp cmake python3-dev
+cd ~/.vim/bundle/youcompleteme/
+./install.py --clang-completer
+wget
+https://raw.githubusercontent.com/Valloric/ycmd/66030cd94299114ae316796f3cad181cac8a007c/.ycm_extra_conf.py
+-P ~/.vim/
 
-echo "type vim command :PluginInstall"
+echo ">> start.sh FINISH!"
 
-echo "sudo apt install cpp cmake python3-dev"
-echo "cd ~/.vim/bundle/YouCompleteMe/"
-echo "./install.py --clang-completer"
-
-echo "start.sh FINISH!"
+echo ">> Please type vim command :PluginInstall"
