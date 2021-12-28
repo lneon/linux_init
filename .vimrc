@@ -64,7 +64,11 @@ call vundle#end()
 "airline
 "//////////////////////////////////////////////
 set laststatus=2
-
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'absolutepath', 'modified' ] ],
+      \ }
+      \ }
 "//////////////////////////////////////////////
 "NERD Tree Option
 "//////////////////////////////////////////////
@@ -103,7 +107,7 @@ let g:cpp_experimental_simple_template_highlight = 1
 "//////////////////////////////////////////////
 "ctags
 "//////////////////////////////////////////////
-" set tags+=/home/lneon/trunk/src/ctags
+set tags+=/home/lneon/mysql-server/ctags
 
 
 "//////////////////////////////////////////////
